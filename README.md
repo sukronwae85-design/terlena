@@ -1,148 +1,193 @@
-. README.md
+README.md (Documentation)
 markdown
 
-# Terlena VPN Manager
-SSH + VMess + UDP Custom All-in-One Solution
+# 🚀 VPN TUNNELING MANAGER SUPER LENGKAP
 
-## Features
-- SSH with custom banner & login limits
-- VMess (V2Ray) with WebSocket + TLS
-- UDP Custom (BadVPN-UDPGw) multiple ports
-- Auto IP limit enforcement
-- SSL certificate (Let's Encrypt)
-- Monitoring & auto backup
-- User management system
+## 🌟 ULTIMATE FEATURES
+- **SSH on Port 22, 80, 443, 8080, 8888** - Maximum bypass capability
+- **VMESS on Port 80 (WS) & 443 (WSS+TLS)** - Dual protocol support
+- **UDP Custom ALL Ports 1-65535** - Complete UDP port range
+- **Auto Domain + SSL** - One-click domain setup
+- **Random UDP Ports** - Dynamic port allocation
+- **Full Monitoring** - Real-time connection tracking
+- **Auto Lock System** - Security enforcement
 
-## Quick Install
+## 🚀 INSTALLATION
 ```bash
+# One-line installation
 curl -sL https://raw.githubusercontent.com/sukronwae85-design/terlena/main/installer.sh | bash
 
-Usage
-bash
-
-# Interactive menu
-terlena menu
-
-# Create user
-terlena add
-
-# List users
-terlena list
-
-# Monitor
-terlena monitor
-
-# Auto lock check
-terlena check
-
-# Backup
-terlena backup
-
-Ports Used
-
-    SSH: 22, 2259, 2269
-
-    VMess: 443 (WS+TLS)
-
-    UDP: 7100, 7200, 7300
-
-    UDP Random: 10000-50000 (all open)
-
-    Web: 80
-
-    SSL: 443
-
-Auto Features
-
-    Auto lock on IP limit violation
-
-    Auto lock on expiration
-
-    Auto SSL renewal
-
-    Auto backup weekly
-
-    Auto monitoring
-
-text
-
-
-### **2. Cara Upload ke GitHub Anda:**
-
-```bash
-# 1. Clone repository Anda
-git clone https://github.com/sukronwae85-design/terlena.git
-cd terlena
-
-# 2. Buat file installer.sh
-nano installer.sh
-# Paste script lengkap di atas
-
-# 3. Buat README.md
-nano README.md
-# Paste README di atas
-
-# 4. Buat file update.sh untuk auto-update
-nano update.sh
-
-update.sh:
-bash
-
-#!/bin/bash
-# Auto update script
-REPO="https://github.com/sukronwae85-design/terlena"
-wget -q -O /tmp/terlena-update.sh $REPO/raw/main/installer.sh
-chmod +x /tmp/terlena-update.sh
-/tmp/terlena-update.sh
-echo "Terlena VPN updated!"
-
-bash
-
-# 5. Commit ke GitHub
-git add installer.sh README.md update.sh
-git commit -m "Add Terlena VPN Manager"
-git push origin main
-
-🚀 INSTALASI DI VPS ANDA (1 BARIS):
-bash
-
-# METODE 1: Install langsung
-curl -sL https://raw.githubusercontent.com/sukronwae85-design/terlena/main/installer.sh | bash
-
-# METODE 2: Download dulu
+# Or download first
 wget https://raw.githubusercontent.com/sukronwae85-design/terlena/main/installer.sh
 chmod +x installer.sh
-./installer.sh
+./installer.sh install
 
-# METODE 3: Uninstall
-./installer.sh uninstall
+📖 USAGE
+bash
 
-🎯 CONTOH HASIL SETELAH BUAT USER:
+# After installation:
+vpntunnel menu          # Interactive menu
+vpntunnel ssh           # Create SSH account
+vpntunnel vmess         # Create VMESS account
+vpntunnel ssl           # Setup domain + SSL
+vpntunnel testudp       # Test UDP port
+vpntunnel restartudp    # Restart UDP random ports
+
+🔥 PORT CONFIGURATION
+Service	Ports	Protocol	Purpose
+SSH	22, 80, 443, 8080, 8888	TCP	SSH tunneling (bypass all)
+VMESS	80 (WS), 443 (WSS+TLS)	TCP	V2Ray WebSocket
+UDP Custom	1-65535 (ALL)	UDP	Unlimited UDP ports
+Dropbear	445	TCP	Alternative SSH
+Nginx	80, 443	TCP	Web server & proxy
+🎯 CONNECTION EXAMPLES
+SSH Connection (Bypass Firewall):
+bash
+
+# Via HTTPS Port (443)
+ssh username@your-domain.com -p 443
+
+# Via HTTP Port (80)
+ssh username@your-domain.com -p 80
+
+# Standard SSH
+ssh username@your-domain.com -p 22
+
+# SSH Tunneling (SOCKS5)
+ssh -D 1080 -C -N -f username@your-domain.com -p 443
+
+VMESS Connection:
 text
 
-╔══════════════════════════════════════════════════════════════╗
-║          USER BERHASIL DIBUAT!                              ║
-╚══════════════════════════════════════════════════════════════╝
+Port 80:  ws://your-domain.com/vmess
+Port 443: wss://your-domain.com/vmess
 
-┌────────────────────────────────────────────────────────────┐
-│ Username      : john_doe                                  │
-│ Password      : XyZ8pQ2rK9mW                             │
-│ Server IP     : 192.168.1.100                            │
-│ Expire Date   : 2024-12-31                               │
-│ Max IP Login  : 2                                        │
-│ Account Type  : both (SSH + VMess)                       │
-└────────────────────────────────────────────────────────────┘
+UDP Custom:
+bash
 
-🔐 SSH CONFIG:
-Host: 192.168.1.100
-Port: 22, 2269, 2259
-Username: john_doe
-Password: XyZ8pQ2rK9mW
+# Test any UDP port
+test-udp-port.sh 12345
 
-📱 SSH TUNNEL UDP:
-Command: ssh -D 8080 -C -N -f john_doe@192.168.1.100 -p 22
+# All UDP ports 1-65535 are open!
 
-🌐 VMESS CONFIG:
-vmess://ewoidiI6ICIyIiwKInBzIjogIlRlcmxlbmEtam9obl9kb2UiLAoiYWRkIjogIjE5Mi4xNjguMS4xMDAiLAoicG9ydCI6ICI0NDMiLAoiaWQiOiAiODk5ZGY1Y2QtYmQ4ZC00ZjE3LWI5ZjQtMWY4N2E4NDIyYmQ2IiwKI
+🔧 FEATURES DETAIL
+1. SSH Multi-Port
 
+    Port 22: Standard SSH
+
+    Port 80: HTTP Bypass (works in restricted networks)
+
+    Port 443: HTTPS Bypass (works everywhere)
+
+    Port 8080/8888: Alternative ports
+
+2. VMESS Dual Protocol
+
+    Port 80: WebSocket (no encryption)
+
+    Port 443: WebSocket + TLS (encrypted)
+
+    Automatic SSL with Let's Encrypt
+
+3. UDP Unlimited Ports
+
+    All UDP ports 1-65535 open
+
+    Random port assignment
+
+    Dynamic port rotation
+
+    No port restrictions
+
+4. Security Features
+
+    Auto lock on IP violation
+
+    Account expiration system
+
+    Login monitoring
+
+    Fail2ban protection
+
+    SSL encryption
+
+⚡ QUICK START
+
+    Install: ./installer.sh install
+
+    Setup domain: vpntunnel ssl
+
+    Create user: vpntunnel ssh
+
+    Connect: ssh user@domain -p 443
+
+    Test UDP: vpntunnel testudp 12345
+
+📊 MONITORING
+bash
+
+vpntunnel monitor      # System monitoring
+vpntunnel list         # Active users
+vpntunnel info         # Server information
+
+🔄 UPDATES
+bash
+
+vpntunnel update       # Auto update from GitHub
+
+🆘 SUPPORT
+
+    Ubuntu 18.04/20.04/22.04
+
+    Minimum 1GB RAM
+
+    Root access required
+
+text
+
+
+## 🎯 **CARA INSTALL & GUNAKAN:**
+
+```bash
+# 1. INSTALL
+wget https://raw.githubusercontent.com/sukronwae85-design/terlena/main/installer.sh
+chmod +x installer.sh
+./installer.sh install
+
+# 2. SETUP DOMAIN (Optional)
+vpntunnel ssl
+# Ikuti petunjuk untuk pointing domain
+
+# 3. BUAT USER SSH
+vpntunnel ssh
+# Hasilnya bisa pakai port 80 atau 443
+
+# 4. BUAT USER VMESS
+vpntunnel vmess
+# Bisa pakai port 80 atau 443
+
+# 5. TEST UDP PORT
+vpntunnel testudp
+# Masukkan port random 1-65535
+
+# 6. MONITOR
+vpntunnel monitor
+
+💡 KEUNGGULAN SCRIPT INI:
+
+    ✅ SSH Port 80/443 - Bypass SEMUA firewall
+
+    ✅ VMESS Port 80/443 - WebSocket + TLS
+
+    ✅ UDP 1-65535 - SEMUA port UDP terbuka
+
+    ✅ Random Ports - Port berubah otomatis
+
+    ✅ Auto Domain SSL - Setup domain 1 klik
+
+    ✅ Complete Monitoring - Pantau semua koneksi
+
+    ✅ Auto Lock System - Keamanan maksimal
+
+SCRIPT INI SUDAH SUPER LENGKAP DAN READY TO USE! 🚀
 This response is AI-generated, for reference only.
